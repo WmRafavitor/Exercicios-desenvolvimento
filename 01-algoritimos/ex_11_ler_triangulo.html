@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triângulo</title>
+</head>
+<body>
+  <div style="width: 800px; height: 70px; margin-left: 250px; background: #4169E1;">
+    <h1 style="font-size: 40px; color: #fff; text-align: center; margin-top: -2px;">MEDIDAS DE UM TRIÂNGULO</h1>
+  </div>
+  <div>
+      <p style="text-align: center; font-size: 25px;" id="primeiroTexto"></p><br>
+  </div>
+  <canvas style="background: #fff; margin-left: 220px; margin-top: 70px;" width="850" height="600"></canvas>
+  
+  <script>
+    var tela = document.querySelector("canvas");
+    var triangulo = tela.getContext("2d");
+
+    var lado1 = parseInt(prompt("Digite o primeiro lado do triângulo"));
+    var lado2 = parseInt(prompt("Digite o segundo lado do triângulo"));
+    var lado3 = parseInt(prompt("Digite o terceiro lado do triângulo"));
+
+    function ladosTriangulo() {
+      if(lado1 < (lado2 + lado3) && lado2 < (lado1 + lado3) && lado3 < (lado1 + lado2)) {
+          if(lado1 == lado2 && lado2 == lado3){
+            return "Equilátero";
+          } else if(lado1 == lado2 || lado2 == lado3 || lado3 == lado1) {
+            return "Isóceles";
+          }else {
+          return "Escaleno";
+          }
+      } else {
+        return alert("Um dos lados do Triângulo está definido incorretamente. ")
+      }
+    }
+
+    var resultado = ladosTriangulo();
+
+    document.getElementById("primeiroTexto").innerHTML = resultado;
+
+  </script>
+   
+</body>
+</html>
